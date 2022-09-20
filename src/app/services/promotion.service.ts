@@ -8,16 +8,16 @@ import { Promotion } from '../shared/promotion';
 })
 export class PromotionService {
 
-  getPromotions(): Promotion[] {
+  async getPromotions(): Promise<Promotion[]> {
     return PROMOTIONS;
   }
 
-  getPromotionById(id: string): Promotion {
-    return PROMOTIONS.filter((promotion) => (promotion.id === id))[0];
+  async getPromotionById(id: string): Promise<Promotion> {
+    return PROMOTIONS.filter(promotion => promotion.id === id)[0];
   }
 
-  getFeaturedPromotion(): Promotion {
-    return PROMOTIONS.filter((promotion) => promotion.featured)[0];
+  async getFeaturedPromotion(): Promise<Promotion> {
+    return PROMOTIONS.filter(promotion => promotion.featured)[0];
   }
 
   constructor() { }

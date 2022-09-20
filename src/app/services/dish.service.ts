@@ -8,16 +8,16 @@ import { DISHES } from '../database/dishes'
 })
 export class DishService {
 
-  getDishes(): Dish[] {
+  async getDishes(): Promise<Dish[]> {
     return DISHES;
   }
 
 
-  getDishById(id: string): Dish {
+  async getDishById(id: string): Promise<Dish> {
     return DISHES.filter((dish) => (dish.id === id))[0];
   }
 
-  getFeaturedDish(): Dish {
+  async getFeaturedDish(): Promise<Dish> {
     return DISHES.filter((dish) => dish.featured)[0];
   }
 

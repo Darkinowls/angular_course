@@ -14,17 +14,17 @@ import { Promotion } from 'src/app/shared/promotion';
 })
 export class HomeComponent implements OnInit {
 
-  dish: Dish | null = null
-  promotion: Promotion | null = null
-  leader: Leader | null = null
+  dish: Dish = new Dish();
+  promotion: Promotion = new Promotion()
+  leader: Leader = new Leader()
 
   constructor(private dishService: DishService, private promotionService: PromotionService, private leaderService: LeaderService) {
   }
 
-  ngOnInit(): void {
-    this.dish = this.dishService.getFeaturedDish()
-    this.promotion = this.promotionService.getFeaturedPromotion()
-    this.leader = this.leaderService.getFeaturedLeader()
+  async ngOnInit(): Promise<void> {
+    this.dish = await this.dishService.getFeaturedDish()
+    this.promotion = await this.promotionService.getFeaturedPromotion()
+    this.leader = await this.leaderService.getFeaturedLeader()
   }
 
 }

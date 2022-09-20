@@ -7,15 +7,15 @@ import { Leader } from '../shared/leader';
 })
 export class LeaderService {
 
-  getLeaders(): Leader[] {
+  async getLeaders(): Promise<Leader[]> {
     return LEADERS;
   }
 
-  getLeaderById(id: string): Leader {
+  async getLeaderById(id: string): Promise<Leader> {
     return LEADERS.filter((leader) => (leader.id === id))[0];
   }
 
-  getFeaturedLeader(): Leader {
+  async getFeaturedLeader(): Promise<Leader> {
     return LEADERS.filter((leader) => leader.featured)[0];
   }
 
