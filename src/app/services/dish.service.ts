@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Dish } from '../shared/dish'
-import { DISHES } from '../shared/database/dishes'
+import { DISHES } from '../database/dishes'
 
 
 @Injectable({

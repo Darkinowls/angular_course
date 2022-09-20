@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PROMOTIONS } from '../shared/database/promotions';
+import { PROMOTIONS } from '../database/promotions';
 import { Promotion } from '../shared/promotion';
 
 

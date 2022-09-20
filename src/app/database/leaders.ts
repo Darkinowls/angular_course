@@ -1,4 +1,4 @@
-import { Leader } from "../leader";
+import { Leader } from "../shared/leader";
 
 
 export const LEADERS: Leader[] = [

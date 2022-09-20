@@ -12,7 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatSelectModule} from "@angular/material/select";
+import {MatSlideToggle, MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 
 import { AppComponent } from './app.component';
@@ -60,7 +62,10 @@ import { LeaderService } from './services/leader.service';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    MatCheckboxModule
+    MatSelectModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
   ],
   providers: [DishService, PromotionService, LeaderService],
   bootstrap: [AppComponent]

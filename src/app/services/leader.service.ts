@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LEADERS } from '../shared/database/leaders';
+import { LEADERS } from '../database/leaders';
 import { Leader } from '../shared/leader';
 
 @Injectable({
