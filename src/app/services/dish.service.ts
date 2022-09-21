@@ -9,16 +9,26 @@ import { DISHES } from '../database/dishes'
 export class DishService {
 
   async getDishes(): Promise<Dish[]> {
-    return DISHES;
+    return new Promise(
+      resolve => {
+        setTimeout(() => resolve(DISHES), 2_000)
+      })
   }
 
 
   async getDishById(id: string): Promise<Dish> {
-    return DISHES.filter((dish) => (dish.id === id))[0];
+    return new Promise(resolve => { setTimeout(() => resolve(DISHES.filter(dish => (dish.id === id))[0]), 2_000) });
   }
 
   async getFeaturedDish(): Promise<Dish> {
-    return DISHES.filter((dish) => dish.featured)[0];
+    return new Promise(
+      resolve => {
+        setTimeout(
+          () =>
+            resolve(
+              DISHES.filter(
+                dish => dish.featured)[0]), 2_000)
+      });
   }
 
 
