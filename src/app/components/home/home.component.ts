@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    this.dish = await this.dishService.getFeaturedDish()
+    this.dishService.getFeaturedDish().subscribe(d => this.dish = d)
     this.promotion = await this.promotionService.getFeaturedPromotion()
     this.leader = await this.leaderService.getFeaturedLeader()
   }

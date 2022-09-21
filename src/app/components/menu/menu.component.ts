@@ -14,9 +14,10 @@ export class MenuComponent implements OnInit {
 
 
   constructor(private dishService: DishService) {
-    this.dishService.getDishes()
-      .then((dishes) => this.dishes = dishes)
-      .then((dishes) => this.selectedDish = dishes[0]);
+    this.dishService.getDishes().subscribe(dishes => {
+      this.dishes = dishes
+      this.selectedDish = dishes[0]
+    })
 
   }
 
