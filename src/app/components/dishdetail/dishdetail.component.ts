@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { DishService } from 'src/app/services/dish.service';
 import { Dish } from 'src/app/shared/dish';
 import { Location } from '@angular/common';
+import { switchMap } from 'rxjs';
 
 
 @Component({
@@ -13,14 +14,30 @@ import { Location } from '@angular/common';
 export class DishdetailComponent implements OnInit {
 
   dish: Dish | null = null;
+  dishIsd: string[] = []
+  prev: string = ''
+  next: string = ''
 
   constructor(private dishService: DishService, private location: Location, private route: ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
-    let id: string = this.route.snapshot.params['id']
-    this.dishService.getDishById(id).subscribe((dish) => this.dish = dish)
+    this.dishService.getDishIds()
+      .subscribe(ids => this.dishIsd = ids)
+    this.route.params
+      .pipe(switchMap((params: Params) => this.dishService.getDishById(params['id'])))
+      .subscribe(dish => {
+        this.dish = dish
+        this.setPrevNext(dish.id)
+      })
+  }
+
+  setPrevNext(dishId: string) {
+    const index = this.dishIsd.indexOf(dishId)
+    const length = this.dishIsd.length
+    this.prev = this.dishIsd[(length + index - 1) % length]
+    this.next = this.dishIsd[(length + index + 1) % length]
   }
 
   goBack(): void {

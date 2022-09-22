@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Dish } from '../shared/dish'
 import { DISHES } from '../database/dishes'
 import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { delay, map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -23,6 +23,11 @@ export class DishService {
     return of(
       DISHES.filter(
         dish => dish.featured)[0]).pipe(delay(2000))
+  }
+
+  getDishIds(): Observable<string[]> {
+    return of(DISHES.map(dish => dish.id))
+
   }
 
 
