@@ -12,11 +12,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatSelectModule} from "@angular/material/select";
-import {MatSlideToggle, MatSlideToggleModule} from "@angular/material/slide-toggle";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner"
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from "@angular/material/select";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner"
+import { MatSliderModule } from '@angular/material/slider'
 
 import { AppComponent } from './app.component';
 import 'hammerjs';
@@ -67,7 +67,8 @@ import { LeaderService } from './services/leader.service';
     MatSlideToggleModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSliderModule
   ],
   providers: [DishService, PromotionService, LeaderService],
   bootstrap: [AppComponent]
